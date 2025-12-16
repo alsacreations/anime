@@ -34,6 +34,10 @@ Ajoutez l'attribut `data-animation` sur n'importe quel élément HTML. Vous pouv
    - `entry exit` : Déclenche l'animation lorsque l'élément entre et sort de la vue.
 3. **Easing (Optionnel)** :
    - `bounce` : Ajoute un effet de rebond.
+4. **Delay (Optionnel)** :
+   - `delay-s` (ou `delay`) : Retarde l'animation de 3% du scroll.
+   - `delay-m` : Retarde l'animation de 6% du scroll.
+   - `delay-l` : Retarde l'animation de 9% du scroll.
 
 **Exemples :**
 

@@ -63,6 +63,19 @@
     animation-name: var(--animation-name-entry);
     animation-range: var(--animation-range-entry);
     animation-direction: var(--animation-direction-entry);
+
+    &[data-animation*="delay"],
+    &[data-animation*="delay-s  "] {
+      --animation-range-entry: cover 13% cover 33%;
+    }
+
+    &[data-animation*="delay-m"] {
+      --animation-range-entry: cover 16% cover 36%;
+    }
+
+    &[data-animation*="delay-l"] {
+      --animation-range-entry: cover 19% cover 39%;
+    }
   }
 
   [data-animation*="exit"] {
@@ -72,6 +85,19 @@
     animation-name: var(--animation-name-exit);
     animation-range: var(--animation-range-exit);
     animation-direction: var(--animation-direction-exit);
+
+    &[data-animation*="delay"],
+    &[data-animation*="delay-s"] {
+      --animation-range-exit: cover 67% cover 87%;
+    }
+
+    &[data-animation*="delay-m"] {
+      --animation-range-exit: cover 64% cover 84%;
+    }
+
+    &[data-animation*="delay-l"] {
+      --animation-range-exit: cover 61% cover 81%;
+    }
   }
 
   [data-animation*="entry"][data-animation*="exit"] {

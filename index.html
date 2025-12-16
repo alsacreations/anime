@@ -40,6 +40,7 @@
       data-gap="xl">
       <div class="fill"></div>
 
+      <!-- Entry -->
       <section
         data-layout="stack"
         data-gap="m">
@@ -135,6 +136,7 @@
         </div>
       </section>
 
+      <!-- Exit -->
       <section
         data-layout="stack"
         data-gap="m">
@@ -231,6 +233,7 @@
         </div>
       </section>
 
+      <!-- Entry and Exit -->
       <section
         data-layout="stack"
         data-gap="m">
@@ -265,6 +268,7 @@
         </div>
       </section>
 
+      <!-- Bounce -->
       <section
         data-layout="stack"
         data-gap="m">
@@ -295,10 +299,42 @@
         </div>
       </section>
 
+      <!-- Delay -->
       <section
         data-layout="stack"
         data-gap="m">
-        <h2 class="title-l">Animations au Survol (Hover)</h2>
+        <h2>Delay</h2>
+        <p>
+          Le mot-clé "delay-s-m-l" permet de retarder le début de l'animation.
+        </p>
+        <div
+          data-layout="autogrid"
+          data-gap="l"
+          style="--col-min-size: 10rem">
+          <div
+            class="box"
+            data-animation="fade-up entry">
+            fade-up entry
+          </div>
+          <div
+            class="box"
+            data-animation="fade-up entry delay-s">
+            fade-up entry delay-s
+          </div>
+
+          <div
+            class="box"
+            data-animation="fade-up entry delay-m">
+            fade-up entry delay-m
+          </div>
+        </div>
+      </section>
+
+      <!-- Hover -->
+      <section
+        data-layout="stack"
+        data-gap="m">
+        <h2>Animations au Survol (Hover)</h2>
         <p>
           Animations déclenchées au <code>:hover</code> ou
           <code>:focus-visible</code>.
