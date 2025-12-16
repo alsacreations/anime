@@ -1,0 +1,67 @@
+/* ----------------------------------
+ * Styles de base du projet
+ * ----------------------------------
+ */
+
+/* Modificateurs de Layouts */
+[data-layout*="boxed"] {
+  --boxed-max: 96rem; /* 1536px */
+}
+
+/* Base */
+body {
+  background-color: var(--surface);
+  color: var(--on-surface);
+  font-family: var(--font-base);
+  font-size: var(--text-m);
+  font-weight: var(--font-weight-regular);
+}
+
+/* Titres */
+h1 {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-semibold);
+}
+
+h2 {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-semibold);
+}
+
+h3 {
+  font-size: var(--text-l);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Demo  */
+[data-layout="boxed"] {
+  --boxed-max: 60rem;
+}
+
+/* Demo box */
+.box {
+  display: grid;
+  place-items: center;
+  width: 10rem;
+  aspect-ratio: 1;
+  background-color: var(--primary);
+  color: var(--on-primary);
+  padding: 1rem;
+  border-radius: var(--radius-8);
+}
+
+/* Fill */
+.fill {
+  min-height: 80dvh;
+  resize: vertical;
+  background-color: var(--color-gray-200);
+
+  &::before {
+    content: "zone placeholder pour forcer à scroller";
+    display: block;
+    padding: 1rem;
+    text-align: center;
+    font-style: italic;
+    color: var(--color-gray-500);
+  }
+}

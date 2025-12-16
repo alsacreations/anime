@@ -1,0 +1,329 @@
+<!doctype html>
+<html
+  lang="fr"
+  data-animation="view view-down">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Animations Bretzel</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="assets/images/favicon.svg" />
+    <link
+      rel="stylesheet"
+      href="assets/css/app.css" />
+  </head>
+  <body data-layout="boxed">
+    <header>
+      <h1>Animations Bretzel</h1>
+      <p>
+        Attribut utilitaire HTML <code>data-animation</code> pour la génération
+        d'animations modernes CSS
+        <i>
+          (scroll-timeline, view-timeline, @starting-style, interpolate-size,
+          View Transition API) </i
+        >.
+      </p>
+      <p>
+        Ajouter l'attribut <code>data-animation="view view-down"</code> à
+        l'élément <code>html</code> pour activer l'animation entre les pages.
+      </p>
+      <p>
+        <a href="page2.html">Aller à la page 2</a> (transition entre les pages)
+      </p>
+    </header>
+    <main
+      data-layout="stack"
+      data-gap="xl">
+      <div class="fill"></div>
+
+      <section
+        data-layout="stack"
+        data-gap="m">
+        <h2>Animations en entrée</h2>
+        <p>
+          Ces animations se déclenchent lorsque l'élément entre dans la zone de
+          vue (viewport) puis restent en place. L'attribut
+          <code>data-animation</code> permet de spécifier le type d'animation,
+          par exemple <code>data-animation="slide-up entry"</code> ou
+          <code>data-animation="fade-up entry"</code>.
+        </p>
+        <h3>Slide</h3>
+        <div
+          data-layout="autogrid"
+          data-gap="l"
+          style="--col-min-size: 10rem">
+          <div
+            class="box"
+            data-animation="slide-left entry">
+            slide-left entry
+          </div>
+          <div
+            class="box"
+            data-animation="slide-up entry">
+            slide-up entry
+          </div>
+
+          <div
+            class="box"
+            data-animation="slide-right entry">
+            slide-right entry
+          </div>
+        </div>
+        <h3>Fade</h3>
+        <div
+          data-layout="autogrid"
+          data-gap="l"
+          style="--col-min-size: 10rem">
+          <div
+            class="box"
+            data-animation="fade-left entry">
+            fade-left entry
+          </div>
+          <div
+            class="box"
+            data-animation="fade-up entry">
+            fade-up entry
+          </div>
+
+          <div
+            class="box"
+            data-animation="fade-right entry">
+            fade-right entry
+          </div>
+        </div>
+        <h3>Zoom</h3>
+        <div
+          data-layout="autogrid"
+          data-gap="l"
+          style="--col-min-size: 10rem">
+          <div
+            class="box"
+            data-animation="zoom entry">
+            zoom entry
+          </div>
+        </div>
+        <h3>Reveal</h3>
+        <div
+          data-layout="autogrid"
+          data-gap="l"
+          style="--col-min-size: 10rem">
+          <div
+            class="box"
+            data-animation="reveal entry">
+            reveal entry
+          </div>
+        </div>
+        <h3>Flip</h3>
+        <div
+          data-layout="autogrid"
+          data-gap="l"
+          style="--col-min-size: 10rem">
+          <div
+            class="box"
+            data-animation="flip-y entry">
+            flip-y entry
+          </div>
+          <div
+            class="box"
+            data-animation="flip-x entry">
+            flip-x entry
+          </div>
+        </div>
+      </section>
+
+      <section
+        data-layout="stack"
+        data-gap="m">
+        <h2>Animations en sortie</h2>
+        <p>
+          Ces animations se déclenchent lorsque l'élément sort de la zone de vue
+          (viewport) puis restent en place. Le mot-clé "exit" permet de
+          spécifier que l'animation se déclenche lorsqu'un élément sort de la
+          zone de vue, par exemple
+          <code>data-animation="slide-up exit"</code> ou
+          <code>data-animation="fade-up exit"</code>.
+        </p>
+        <h3>Slide</h3>
+        <div
+          data-layout="autogrid"
+          data-gap="l"
+          style="--col-min-size: 10rem">
+          <div
+            class="box"
+            data-animation="slide-left exit">
+            slide-left exit
+          </div>
+          <div
+            class="box"
+            data-animation="slide-up exit">
+            slide-up exit
+          </div>
+
+          <div
+            class="box"
+            data-animation="slide-right exit">
+            slide-right exit
+          </div>
+        </div>
+        <h3>Fade</h3>
+        <div
+          data-layout="autogrid"
+          data-gap="l"
+          style="--col-min-size: 10rem">
+          <div
+            class="box"
+            data-animation="fade-left exit">
+            fade-left exit
+          </div>
+          <div
+            class="box"
+            data-animation="fade-up exit">
+            fade-up exit
+          </div>
+
+          <div
+            class="box"
+            data-animation="fade-right exit">
+            fade-right exit
+          </div>
+        </div>
+        <h3>Zoom</h3>
+        <div
+          data-layout="autogrid"
+          data-gap="l"
+          style="--col-min-size: 10rem">
+          <div
+            class="box"
+            data-animation="zoom exit">
+            zoom exit
+          </div>
+        </div>
+        <h3>Reveal</h3>
+        <div
+          data-layout="autogrid"
+          data-gap="l"
+          style="--col-min-size: 10rem">
+          <div
+            class="box"
+            data-animation="reveal exit">
+            reveal exit
+          </div>
+        </div>
+        <h3>Flip</h3>
+        <div
+          data-layout="autogrid"
+          data-gap="l"
+          style="--col-min-size: 10rem">
+          <div
+            class="box"
+            data-animation="flip-y exit">
+            flip-y exit
+          </div>
+          <div
+            class="box"
+            data-animation="flip-x exit">
+            flip-x exit
+          </div>
+        </div>
+      </section>
+
+      <section
+        data-layout="stack"
+        data-gap="m">
+        <h2>Entrée et sortie à la fois</h2>
+        <p>
+          Il est possible d'appliquer les deux mots-clés "entry" et "exit" à la
+          fois, par exemple
+          <code>data-animation="slide-up entry exit"</code> ou
+          <code>data-animation="fade-up entry exit"</code>.
+        </p>
+        <h3>Slide</h3>
+        <div
+          data-layout="autogrid"
+          data-gap="l"
+          style="--col-min-size: 10rem">
+          <div
+            class="box"
+            data-animation="slide-left entry exit">
+            slide-left entry exit
+          </div>
+          <div
+            class="box"
+            data-animation="slide-up entry exit">
+            slide-up entry exit
+          </div>
+
+          <div
+            class="box"
+            data-animation="slide-right entry exit">
+            slide-right entry exit
+          </div>
+        </div>
+      </section>
+
+      <section
+        data-layout="stack"
+        data-gap="m">
+        <h2>Bounce</h2>
+        <p>
+          Le mot-clé "bounce" permet de faire rebondir l'animation plutôt que
+          l'accélération linéaire de base.
+        </p>
+        <div
+          data-layout="autogrid"
+          data-gap="l"
+          style="--col-min-size: 10rem">
+          <div
+            class="box"
+            data-animation="slide-left bounce entry exit">
+            slide-left bounce entry exit
+          </div>
+          <div
+            class="box"
+            data-animation="slide-up bounce entry exit">
+            slide-up bounce entry exit
+          </div>
+          <div
+            class="box"
+            data-animation="zoom bounce entry exit">
+            zoom bounce entry exit
+          </div>
+        </div>
+      </section>
+
+      <section
+        data-layout="stack"
+        data-gap="m">
+        <h2 class="title-l">Animations au Survol (Hover)</h2>
+        <p>
+          Animations déclenchées au <code>:hover</code> ou
+          <code>:focus-visible</code>.
+        </p>
+        <div
+          data-layout="autogrid"
+          data-gap="l"
+          style="--col-min-size: 10rem">
+          <div
+            class="box"
+            data-animation="shake"
+            tabindex="0">
+            shake
+          </div>
+          <div
+            class="box"
+            data-animation="spaceboots"
+            tabindex="0">
+            spaceboots
+          </div>
+        </div>
+      </section>
+
+      <div class="fill"></div>
+    </main>
+    <footer>Made avec 🥝 par Alsacreations</footer>
+  </body>
+</html>

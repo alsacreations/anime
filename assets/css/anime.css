@@ -1,0 +1,361 @@
+/* View Transition API */
+@supports (view-transition-name: none) {
+  @view-transition {
+    navigation: auto;
+  }
+
+  /* Animation de transition par défaut */
+  [data-animation*="view"]::view-transition-group(root) {
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: both;
+  }
+
+  /* View-down */
+  @keyframes view-down-old {
+    from {
+      translate: 0 0;
+    }
+
+    to {
+      translate: 0 30px;
+    }
+  }
+
+  @keyframes view-down-new {
+    from {
+      translate: 0 -30px;
+    }
+
+    to {
+      translate: 0 0;
+    }
+  }
+
+  /* Applique l'animation view-down à l'ancien et nouveau document */
+  [data-animation*="view-down"]::view-transition-old(root) {
+    animation-name: view-down-old;
+  }
+
+  [data-animation*="view-down"]::view-transition-new(root) {
+    animation-name: view-down-new;
+  }
+}
+
+/* Scroll-driven Animations */
+@supports (animation-timeline: view()) {
+  [data-animation] {
+    animation-timeline: view(block);
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-duration: auto;
+  }
+
+  [data-animation*="bounce"] {
+    animation-timing-function: cubic-bezier(0.09, 0.77, 0.02, 1.31);
+  }
+
+  /* Ranges */
+  [data-animation*="entry"] {
+    --animation-range-entry: cover 10% cover 30%;
+    --animation-direction-entry: normal;
+
+    animation-name: var(--animation-name-entry);
+    animation-range: var(--animation-range-entry);
+    animation-direction: var(--animation-direction-entry);
+  }
+
+  [data-animation*="exit"] {
+    --animation-range-exit: cover 70% cover 90%;
+    --animation-direction-exit: reverse;
+
+    animation-name: var(--animation-name-exit);
+    animation-range: var(--animation-range-exit);
+    animation-direction: var(--animation-direction-exit);
+  }
+
+  [data-animation*="entry"][data-animation*="exit"] {
+    animation-name: var(--animation-name-entry), var(--animation-name-exit);
+    animation-range: var(--animation-range-entry), var(--animation-range-exit);
+    animation-direction:
+      var(--animation-direction-entry), var(--animation-direction-exit);
+    animation-fill-mode: both, forwards;
+  }
+
+  /* Animations Libraries */
+
+  /* Slide */
+  [data-animation*="slide-left"] {
+    --animation-name-entry: slide-left;
+    --animation-name-exit: slide-left;
+  }
+
+  [data-animation*="slide-right"] {
+    --animation-name-entry: slide-right;
+    --animation-name-exit: slide-right;
+  }
+
+  [data-animation*="slide-up"] {
+    --animation-name-entry: slide-up;
+    --animation-name-exit: slide-up-exit;
+    --animation-direction-exit: normal;
+  }
+
+  /* Fade */
+  [data-animation*="fade-left"] {
+    --animation-name-entry: fade-left;
+    --animation-name-exit: fade-left;
+  }
+
+  [data-animation*="fade-right"] {
+    --animation-name-entry: fade-right;
+    --animation-name-exit: fade-right;
+  }
+
+  [data-animation*="fade-up"] {
+    --animation-name-entry: fade-up;
+    --animation-name-exit: fade-up-exit;
+    --animation-direction-exit: normal;
+  }
+
+  /* Zoom */
+  [data-animation*="zoom"] {
+    --animation-name-entry: zoom;
+    --animation-name-exit: zoom;
+  }
+
+  /* Reveal */
+  [data-animation*="reveal"] {
+    --animation-name-entry: reveal;
+    --animation-name-exit: reveal;
+  }
+
+  /* Flip */
+  [data-animation*="flip-y"] {
+    --animation-name-entry: flip-y;
+    --animation-name-exit: flip-y;
+  }
+
+  [data-animation*="flip-x"] {
+    --animation-name-entry: flip-x;
+    --animation-name-exit: flip-x;
+  }
+}
+
+/* Simple Hover/Focus Animations */
+
+/* Shake */
+[data-animation*="shake"]:where(:hover, :focus-visible) {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* Spaceboots */
+[data-animation*="spaceboots"]:where(:hover, :focus-visible) {
+  animation: spaceboots 2s linear infinite alternate;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  [data-animation] {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+}
+
+/* Keyframes */
+
+/* Spaceboots */
+@keyframes spaceboots {
+  0% {
+    transform: translate(2px, 1px) rotate(0);
+  }
+
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+
+  20% {
+    transform: translate(-3px) rotate(1deg);
+  }
+
+  30% {
+    transform: translateY(2px) rotate(0);
+  }
+
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+
+  60% {
+    transform: translate(-3px, 1px) rotate(0);
+  }
+
+  70% {
+    transform: translate(2px, 1px) rotate(-1deg);
+  }
+
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+
+  90% {
+    transform: translate(2px, 2px) rotate(0);
+  }
+
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+/* Shake */
+@keyframes shake {
+  10%,
+  90% {
+    translate: -1px;
+  }
+  20%,
+  80% {
+    translate: 2px;
+  }
+
+  30%,
+  50%,
+  70% {
+    translate: -2px;
+  }
+  40%,
+  60% {
+    translate: 2px;
+  }
+}
+
+/* Slide */
+@keyframes slide-left {
+  from {
+    translate: -100%;
+  }
+  to {
+    translate: 0;
+  }
+}
+
+@keyframes slide-right {
+  from {
+    translate: 100%;
+  }
+  to {
+    translate: 0;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    translate: 0 100%;
+  }
+  to {
+    translate: 0;
+  }
+}
+
+@keyframes slide-up-exit {
+  from {
+    translate: 0;
+  }
+  to {
+    translate: 0 -100%;
+  }
+}
+
+/* Fade */
+@keyframes fade-left {
+  from {
+    translate: -100%;
+    opacity: 0;
+  }
+  to {
+    translate: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes fade-right {
+  from {
+    translate: 100%;
+    opacity: 0;
+  }
+  to {
+    translate: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    translate: 0 100%;
+    opacity: 0;
+  }
+  to {
+    translate: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes fade-up-exit {
+  from {
+    translate: 0;
+    opacity: 1;
+  }
+  to {
+    translate: 0 -100%;
+    opacity: 0;
+  }
+}
+
+/* Zoom */
+@keyframes zoom {
+  from {
+    scale: 0.8;
+  }
+  to {
+    scale: 1;
+  }
+}
+
+/* Reveal */
+@keyframes reveal {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Flip */
+@keyframes flip-y {
+  from {
+    transform: perspective(400px) rotateY(90deg);
+    opacity: 0;
+  }
+  to {
+    transform: perspective(400px) rotateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes flip-x {
+  from {
+    transform: perspective(400px) rotateX(90deg);
+    opacity: 0;
+  }
+  to {
+    transform: perspective(400px) rotateX(0);
+    opacity: 1;
+  }
+}
