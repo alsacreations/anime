@@ -1,0 +1,271 @@
+<!doctype html>
+<html
+  lang="fr"
+  data-anime="view view-down">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>animateCSS Generator</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="assets/images/favicon.svg" />
+    <link
+      rel="stylesheet"
+      href="assets/css/app.css" />
+  </head>
+  <body data-layout="boxed">
+    <header>
+      <h1>animateCSS Generator</h1>
+    </header>
+    <main
+      data-layout="stack"
+      data-gap="xl">
+      <p>
+        <a href="index.html">Retour à l'accueil</a>
+      </p>
+
+      <div
+        data-layout="duo"
+        data-split="1-2"
+        data-align="start"
+        data-gap="l">
+        <aside data-layout="stack">
+          <!-- Controls -->
+          <form
+            id="generator-form"
+            data-layout="stack"
+            data-gap="m">
+            <fieldset
+              data-layout="stack"
+              class="radius-16 px-m py-m"
+              style="background-color: var(--layer-2); border: none">
+              <legend>Type d'animation</legend>
+              <select
+                name="type"
+                id="type"
+                class="px-s py-s radius-8"
+                style="width: 100%">
+                <optgroup label="Scroll Animations">
+                  <option value="slide-left">Slide Left</option>
+                  <option value="slide-right">Slide Right</option>
+                  <option value="slide-up">Slide Up</option>
+                  <option value="fade-up">Fade Up</option>
+                  <option value="fade-left">Fade Left</option>
+                  <option value="fade-right">Fade Right</option>
+                  <option value="zoom">Zoom</option>
+                  <option value="reveal">Reveal</option>
+                  <option value="flip-y">Flip Y</option>
+                  <option value="flip-x">Flip X</option>
+                </optgroup>
+                <optgroup label="Scroll Discrete (40px)">
+                  <option value="slide-left-discrete">
+                    Slide Left Discrete
+                  </option>
+                  <option value="slide-right-discrete">
+                    Slide Right Discrete
+                  </option>
+                  <option value="slide-up-discrete">Slide Up Discrete</option>
+                  <option value="fade-up-discrete">Fade Up Discrete</option>
+                  <option value="fade-left-discrete">Fade Left Discrete</option>
+                  <option value="fade-right-discrete">
+                    Fade Right Discrete
+                  </option>
+                </optgroup>
+                <optgroup label="Hover/Focus Animations">
+                  <option value="shake">Shake</option>
+                  <option value="spaceboots">Spaceboots</option>
+                </optgroup>
+              </select>
+            </fieldset>
+
+            <fieldset
+              id="options-scroll"
+              data-layout="stack"
+              class="radius-16 px-m py-m"
+              style="background-color: var(--layer-2); border: none">
+              <legend>Options (Scroll only)</legend>
+
+              <div data-layout="cluster">
+                <label>
+                  <input
+                    type="checkbox"
+                    name="trigger"
+                    value="entry"
+                    checked />
+                  Entry
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    name="trigger"
+                    value="exit" />
+                  Exit
+                </label>
+              </div>
+
+              <label
+                data-layout="stack"
+                data-gap="xs">
+                <span>Delay</span>
+                <select
+                  name="delay"
+                  class="px-s py-s radius-8"
+                  style="width: 100%">
+                  <option value="">Aucun</option>
+                  <option value="delay-s">Small (delay-s)</option>
+                  <option value="delay-m">Medium (delay-m)</option>
+                  <option value="delay-l">Large (delay-l)</option>
+                </select>
+              </label>
+
+              <label>
+                <input
+                  type="checkbox"
+                  name="bounce"
+                  value="bounce" />
+                Bounce Effect
+              </label>
+            </fieldset>
+          </form>
+        </aside>
+
+        <section
+          data-layout="stack"
+          data-gap="l">
+          <!-- Result Code -->
+          <div
+            class="px-m py-m radius-16"
+            style="background-color: var(--layer-2)">
+            <code
+              id="result-code"
+              class="block mb-s"
+              style="font-size: 1.2rem; color: var(--primary)"
+              >data-anime="slide-up entry"</code
+            >
+            <button
+              id="copy-btn"
+              class="radius-8 px-s py-s"
+              style="
+                cursor: pointer;
+                border: 1px solid currentColor;
+                background: transparent;
+              ">
+              Copier
+            </button>
+          </div>
+
+          <!-- Preview Area -->
+          <div
+            id="preview-container"
+            class="radius-16"
+            style="
+              height: 400px;
+              overflow-y: scroll;
+              position: relative;
+              background-color: var(--layer-1);
+              border: 2px solid var(--border-medium);
+            ">
+            <div style="height: 50vh"></div>
+            <!-- Spacer -->
+
+            <div
+              data-layout="stack"
+              data-align="center"
+              data-justify="center">
+              <div
+                id="preview-box"
+                class="box">
+                I am animated!
+              </div>
+            </div>
+
+            <div style="height: 100vh"></div>
+            <!-- Spacer -->
+          </div>
+          <p style="text-align: center; font-size: var(--text-s)">
+            Scrollez dans la zone ci-dessus pour voir l'effet (pour les
+            animations Scroll).
+          </p>
+        </section>
+      </div>
+
+      <script>
+        const form = document.getElementById("generator-form")
+        const typeSelect = document.getElementById("type")
+        const optionsScroll = document.getElementById("options-scroll")
+        const previewBox = document.getElementById("preview-box")
+        const resultCode = document.getElementById("result-code")
+        const copyBtn = document.getElementById("copy-btn")
+        const previewContainer = document.getElementById("preview-container")
+
+        function updateGenerator() {
+          const formData = new FormData(form)
+          const type = formData.get("type")
+
+          // Determine category
+          const isHover = ["shake", "spaceboots"].includes(type)
+
+          // Toggle visibility of scroll options
+          if (isHover) {
+            optionsScroll.disabled = true
+            optionsScroll.style.opacity = "0.5"
+          } else {
+            optionsScroll.disabled = false
+            optionsScroll.style.opacity = "1"
+          }
+
+          // Build string
+          let parts = [type]
+
+          if (!isHover) {
+            // Triggers
+            const triggers = formData.getAll("trigger")
+            if (triggers.length > 0) {
+              parts.push(...triggers)
+            }
+
+            // Delay
+            const delay = formData.get("delay")
+            if (delay) parts.push(delay)
+
+            // Bounce
+            const bounce = formData.get("bounce")
+            if (bounce) parts.push(bounce)
+          }
+
+          const attrString = parts.join(" ")
+
+          // Update DOM
+          previewBox.setAttribute("data-anime", attrString)
+          resultCode.textContent = `data-anime="${attrString}"`
+
+          // If hover, maybe give a slight nudge or hint text
+          if (isHover) {
+            previewBox.textContent = "Hover me!"
+          } else {
+            previewBox.textContent = "Scroll me!"
+          }
+        }
+
+        // Event Listeners
+        form.addEventListener("input", updateGenerator)
+
+        // Copy functionality
+        copyBtn.addEventListener("click", () => {
+          const text = resultCode.textContent
+          navigator.clipboard.writeText(text).then(() => {
+            const originalText = copyBtn.textContent
+            copyBtn.textContent = "Copié !"
+            setTimeout(() => (copyBtn.textContent = originalText), 2000)
+          })
+        })
+
+        // Init
+        updateGenerator()
+      </script>
+    </main>
+  </body>
+</html>
