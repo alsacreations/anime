@@ -28,6 +28,7 @@ Une démo est disponible dans le fichier `index.html`.
 Ajoutez l'attribut `data-animation` sur n'importe quel élément HTML. Vous pouvez combiner plusieurs mots-clés :
 
 1. **Type** : `slide-up`, `slide-left`, `slide-right`, `fade-up`, `fade-left`, `fade-right`, `zoom`, `reveal`, `flip-y`, `flip-x`.
+   - Variantes discrètes (mouvement de 40px) : `slide-up-discrete`, `slide-left-discrete`, `slide-right-discrete`, `fade-up-discrete`, `fade-left-discrete`, `fade-right-discrete`.
 2. **Moment** :
    - `entry` : Déclenche l'animation lorsque l'élément entre dans la vue.
    - `exit` : Déclenche l'animation lorsque l'élément sort de la vue.
