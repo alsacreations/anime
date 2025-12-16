@@ -7,6 +7,9 @@
 [data-layout*="boxed"] {
   --boxed-max: 96rem; /* 1536px */
 }
+[data-layout*="autogrid"] {
+  justify-items: center;
+}
 
 /* Base */
 html {
@@ -14,6 +17,7 @@ html {
 }
 
 body {
+  padding-inline: var(--spacing-s);
   overflow-x: clip;
   background-color: var(--surface);
   background-image:
@@ -53,9 +57,10 @@ h2 {
 }
 
 h3 {
-  font-size: var(--text-l);
+  font-size: var(--text-xl);
   font-weight: var(--font-weight-semibold);
-  margin-block: var(--spacing-s) 0;
+  margin-block: var(--spacing-l) 0;
+  text-align: center;
 }
 
 /* Header & Nav */
