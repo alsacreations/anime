@@ -1,6 +1,6 @@
-# Animations Bretzel 🥨
+# animeCSS ✨
 
-Une collection d'animations CSS modernes et légères, pilotables via l'attribut HTML `data-animation` au sein d'un fichier CSS unique `anime.css`.
+Une collection d'animations CSS modernes et légères, pilotables via l'attribut HTML `data-anime` au sein d'un fichier CSS unique `anime.css`.
 
 Ce projet explore et démontre l'utilisation des dernières fonctionnalités CSS&#8239;:
 
@@ -19,13 +19,13 @@ Il suffit d'importer le fichier CSS `anime.css` dans votre projet (de préféren
 
 ## Démo
 
-Une démo est disponible dans le fichier `index.html`.
+Une démo est disponible dans le fichier `demo.html`.
 
 ## Utilisation
 
 ### Animations au Scroll
 
-Ajoutez l'attribut `data-animation` sur n'importe quel élément HTML. Vous pouvez combiner plusieurs mots-clés :
+Ajoutez l'attribut `data-anime` sur n'importe quel élément HTML. Vous pouvez combiner plusieurs mots-clés :
 
 1. **Type** : `slide-up`, `slide-left`, `slide-right`, `fade-up`, `fade-left`, `fade-right`, `zoom`, `reveal`, `flip-y`, `flip-x`.
    - Variantes discrètes (mouvement de 40px) : `slide-up-discrete`, `slide-left-discrete`, `slide-right-discrete`, `fade-up-discrete`, `fade-left-discrete`, `fade-right-discrete`.
@@ -44,13 +44,13 @@ Ajoutez l'attribut `data-animation` sur n'importe quel élément HTML. Vous pouv
 
 ```html
 <!-- Apparition en glissant vers le haut -->
-<div data-animation="slide-up entry">...</div>
+<div data-anime="slide-up entry">...</div>
 
 <!-- Zoom avec effet bounce -->
-<div data-animation="zoom entry bounce">...</div>
+<div data-anime="zoom entry bounce">...</div>
 
 <!-- Cumul entrée et sortie -->
-<div data-animation="fade-up entry exit">...</div>
+<div data-anime="fade-up entry exit">...</div>
 ```
 
 ### Animations au Survol
@@ -61,17 +61,17 @@ Certaines animations se déclenchent au `:hover` ou `:focus-visible` :
 - `spaceboots` : Flottement dans l'espace.
 
 ```html
-<button data-animation="shake">Survolez-moi</button>
+<button data-anime="shake">Survolez-moi</button>
 ```
 
 ### View Transitions (Transitions entre pages)
 
-Pour activer les transitions fluides entre deux pages (Cross-Document View Transitions), ajoutez l'attribut `data-animation` sur l'élément `<html>`.
+Pour activer les transitions fluides entre deux pages (Cross-Document View Transitions), ajoutez l'attribut `data-anime` sur l'élément `<html>`.
 
 ```html
 <html
   lang="fr"
-  data-animation="view view-down"></html>
+  data-anime="view view-down"></html>
 ```
 
 _(Note : Ce projet utilise `@view-transition { navigation: auto; }` en CSS, compatible avec les navigateurs récents)._

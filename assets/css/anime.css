@@ -1,3 +1,9 @@
+/* -----------------------/*
+ * AnimeCSS
+ * Made par Alsacréations
+ * Mise à jour : 2025-12-16
+ /* ---------------------- */
+
 /* View Transition API */
 @supports (view-transition-name: none) {
   @view-transition {
@@ -5,7 +11,7 @@
   }
 
   /* Animation de transition par défaut */
-  [data-animation*="view"]::view-transition-group(root) {
+  [data-anime*="view"]::view-transition-group(root) {
     animation-duration: 0.3s;
     animation-timing-function: ease-in;
     animation-fill-mode: both;
@@ -33,30 +39,33 @@
   }
 
   /* Applique l'animation view-down à l'ancien et nouveau document */
-  [data-animation*="view-down"]::view-transition-old(root) {
+  [data-anime*="view-down"]::view-transition-old(root) {
     animation-name: view-down-old;
   }
 
-  [data-animation*="view-down"]::view-transition-new(root) {
+  [data-anime*="view-down"]::view-transition-new(root) {
     animation-name: view-down-new;
   }
 }
 
 /* Scroll-driven Animations */
 @supports (animation-timeline: view()) {
-  [data-animation] {
+  [data-anime] {
+    --anime-spacing-discrete: 40px;
+    --anime-spacing-normal: 100%;
+
     animation-duration: auto;
     animation-timing-function: linear;
     animation-timeline: view(block);
     animation-fill-mode: both;
   }
 
-  [data-animation*="bounce"] {
+  [data-anime*="bounce"] {
     animation-timing-function: cubic-bezier(0.09, 0.77, 0.02, 1.31);
   }
 
   /* Ranges */
-  [data-animation*="entry"] {
+  [data-anime*="entry"] {
     --animation-range-entry: cover 10% cover 30%;
     --animation-direction-entry: normal;
 
@@ -64,21 +73,21 @@
     animation-range: var(--animation-range-entry);
     animation-direction: var(--animation-direction-entry);
 
-    &[data-animation*="delay"],
-    &[data-animation*="delay-s  "] {
+    &[data-anime*="delay"],
+    &[data-anime*="delay-s  "] {
       --animation-range-entry: cover 13% cover 33%;
     }
 
-    &[data-animation*="delay-m"] {
+    &[data-anime*="delay-m"] {
       --animation-range-entry: cover 16% cover 36%;
     }
 
-    &[data-animation*="delay-l"] {
+    &[data-anime*="delay-l"] {
       --animation-range-entry: cover 19% cover 39%;
     }
   }
 
-  [data-animation*="exit"] {
+  [data-anime*="exit"] {
     --animation-range-exit: cover 70% cover 90%;
     --animation-direction-exit: reverse;
 
@@ -86,21 +95,21 @@
     animation-range: var(--animation-range-exit);
     animation-direction: var(--animation-direction-exit);
 
-    &[data-animation*="delay"],
-    &[data-animation*="delay-s"] {
+    &[data-anime*="delay"],
+    &[data-anime*="delay-s"] {
       --animation-range-exit: cover 67% cover 87%;
     }
 
-    &[data-animation*="delay-m"] {
+    &[data-anime*="delay-m"] {
       --animation-range-exit: cover 64% cover 84%;
     }
 
-    &[data-animation*="delay-l"] {
+    &[data-anime*="delay-l"] {
       --animation-range-exit: cover 61% cover 81%;
     }
   }
 
-  [data-animation*="entry"][data-animation*="exit"] {
+  [data-anime*="entry"][data-anime*="exit"] {
     animation-name: var(--animation-name-entry), var(--animation-name-exit);
     animation-range: var(--animation-range-entry), var(--animation-range-exit);
     animation-direction:
@@ -111,90 +120,90 @@
   /* Animations Libraries */
 
   /* Slide */
-  [data-animation*="slide-left"] {
+  [data-anime*="slide-left"] {
     --animation-name-entry: slide-left;
     --animation-name-exit: slide-left;
   }
 
-  [data-animation*="slide-right"] {
+  [data-anime*="slide-right"] {
     --animation-name-entry: slide-right;
     --animation-name-exit: slide-right;
   }
 
-  [data-animation*="slide-up"] {
+  [data-anime*="slide-up"] {
     --animation-name-entry: slide-up;
     --animation-name-exit: slide-up-exit;
     --animation-direction-exit: normal;
   }
 
-  [data-animation*="slide-left-discrete"] {
+  [data-anime*="slide-left-discrete"] {
     --animation-name-entry: slide-left-discrete;
     --animation-name-exit: slide-left-discrete;
   }
 
-  [data-animation*="slide-right-discrete"] {
+  [data-anime*="slide-right-discrete"] {
     --animation-name-entry: slide-right-discrete;
     --animation-name-exit: slide-right-discrete;
   }
 
-  [data-animation*="slide-up-discrete"] {
+  [data-anime*="slide-up-discrete"] {
     --animation-name-entry: slide-up-discrete;
     --animation-name-exit: slide-up-exit-discrete;
     --animation-direction-exit: normal;
   }
 
   /* Fade */
-  [data-animation*="fade-left"] {
+  [data-anime*="fade-left"] {
     --animation-name-entry: fade-left;
     --animation-name-exit: fade-left;
   }
 
-  [data-animation*="fade-right"] {
+  [data-anime*="fade-right"] {
     --animation-name-entry: fade-right;
     --animation-name-exit: fade-right;
   }
 
-  [data-animation*="fade-up"] {
+  [data-anime*="fade-up"] {
     --animation-name-entry: fade-up;
     --animation-name-exit: fade-up-exit;
     --animation-direction-exit: normal;
   }
 
-  [data-animation*="fade-left-discrete"] {
+  [data-anime*="fade-left-discrete"] {
     --animation-name-entry: fade-left-discrete;
     --animation-name-exit: fade-left-discrete;
   }
 
-  [data-animation*="fade-right-discrete"] {
+  [data-anime*="fade-right-discrete"] {
     --animation-name-entry: fade-right-discrete;
     --animation-name-exit: fade-right-discrete;
   }
 
-  [data-animation*="fade-up-discrete"] {
+  [data-anime*="fade-up-discrete"] {
     --animation-name-entry: fade-up-discrete;
     --animation-name-exit: fade-up-exit-discrete;
     --animation-direction-exit: normal;
   }
 
   /* Zoom */
-  [data-animation*="zoom"] {
+  [data-anime*="zoom"] {
     --animation-name-entry: zoom;
     --animation-name-exit: zoom;
   }
 
   /* Reveal */
-  [data-animation*="reveal"] {
+  [data-anime*="reveal"] {
     --animation-name-entry: reveal;
     --animation-name-exit: reveal;
   }
 
   /* Flip */
-  [data-animation*="flip-y"] {
+  [data-anime*="flip-y"] {
     --animation-name-entry: flip-y;
     --animation-name-exit: flip-y;
   }
 
-  [data-animation*="flip-x"] {
+  [data-anime*="flip-x"] {
     --animation-name-entry: flip-x;
     --animation-name-exit: flip-x;
   }
@@ -203,18 +212,18 @@
 /* Simple Hover/Focus Animations */
 
 /* Shake */
-[data-animation*="shake"]:where(:hover, :focus-visible) {
+[data-anime*="shake"]:where(:hover, :focus-visible) {
   animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
 
 /* Spaceboots */
-[data-animation*="spaceboots"]:where(:hover, :focus-visible) {
+[data-anime*="spaceboots"]:where(:hover, :focus-visible) {
   animation: spaceboots 2s linear infinite alternate;
 }
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
-  [data-animation] {
+  [data-anime] {
     transform: none !important;
     transition: none !important;
     animation: none !important;
@@ -298,7 +307,7 @@
 /* Slide */
 @keyframes slide-left {
   from {
-    translate: -100%;
+    translate: calc(-1 * var(--anime-spacing-normal, 100%));
   }
 
   to {
@@ -308,7 +317,7 @@
 
 @keyframes slide-right {
   from {
-    translate: 100%;
+    translate: var(--anime-spacing-normal, 100%);
   }
 
   to {
@@ -318,7 +327,7 @@
 
 @keyframes slide-up {
   from {
-    translate: 0 100%;
+    translate: 0 var(--anime-spacing-normal, 100%);
   }
 
   to {
@@ -332,13 +341,13 @@
   }
 
   to {
-    translate: 0 -100%;
+    translate: 0 calc(-1 * var(--anime-spacing-normal, 100%));
   }
 }
 
 @keyframes slide-left-discrete {
   from {
-    translate: -40px;
+    translate: calc(-1 * var(--anime-spacing-discrete, 40px));
   }
 
   to {
@@ -348,7 +357,7 @@
 
 @keyframes slide-right-discrete {
   from {
-    translate: 40px;
+    translate: var(--anime-spacing-discrete, 40px);
   }
 
   to {
@@ -358,7 +367,7 @@
 
 @keyframes slide-up-discrete {
   from {
-    translate: 0 40px;
+    translate: 0 var(--anime-spacing-discrete, 40px);
   }
 
   to {
@@ -372,14 +381,14 @@
   }
 
   to {
-    translate: 0 -40px;
+    translate: 0 calc(-1 * var(--anime-spacing-discrete, 40px));
   }
 }
 
 /* Fade */
 @keyframes fade-left {
   from {
-    translate: -100%;
+    translate: calc(-1 * var(--anime-spacing-normal, 100%));
     opacity: 0%;
   }
 
@@ -391,7 +400,7 @@
 
 @keyframes fade-right {
   from {
-    translate: 100%;
+    translate: var(--anime-spacing-normal, 100%);
     opacity: 0%;
   }
 
@@ -403,7 +412,7 @@
 
 @keyframes fade-up {
   from {
-    translate: 0 100%;
+    translate: 0 var(--anime-spacing-normal, 100%);
     opacity: 0%;
   }
 
@@ -420,14 +429,14 @@
   }
 
   to {
-    translate: 0 -100%;
+    translate: 0 calc(-1 * var(--anime-spacing-normal, 100%));
     opacity: 0%;
   }
 }
 
 @keyframes fade-left-discrete {
   from {
-    translate: -40px;
+    translate: calc(-1 * var(--anime-spacing-discrete, 40px));
     opacity: 0%;
   }
 
@@ -439,7 +448,7 @@
 
 @keyframes fade-right-discrete {
   from {
-    translate: 40px;
+    translate: var(--anime-spacing-discrete, 40px);
     opacity: 0%;
   }
 
@@ -451,7 +460,7 @@
 
 @keyframes fade-up-discrete {
   from {
-    translate: 0 40px;
+    translate: 0 var(--anime-spacing-discrete, 40px);
     opacity: 0%;
   }
 
@@ -468,7 +477,7 @@
   }
 
   to {
-    translate: 0 -40px;
+    translate: 0 calc(-1 * var(--anime-spacing-discrete, 40px));
     opacity: 0%;
   }
 }

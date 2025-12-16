@@ -1,7 +1,7 @@
 <!doctype html>
 <html
   lang="fr"
-  data-animation="view view-down">
+  data-anime="view view-down">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -20,7 +20,7 @@
     <header>
       <h1>Animations Bretzel</h1>
       <p>
-        Attribut utilitaire HTML <code>data-animation</code> pour la génération
+        Attribut utilitaire HTML <code>data-anime</code> pour la génération
         d'animations modernes CSS
         <i>
           (scroll-timeline, view-timeline, @starting-style, interpolate-size,
@@ -28,8 +28,8 @@
         >.
       </p>
       <p>
-        Ajouter l'attribut <code>data-animation="view view-down"</code> à
-        l'élément <code>html</code> pour activer l'animation entre les pages.
+        Ajouter l'attribut <code>data-anime="view view-down"</code> à l'élément
+        <code>html</code> pour activer l'animation entre les pages.
       </p>
       <p>
         <a href="page2.html">Aller à la page 2</a> (transition entre les pages)
@@ -48,9 +48,9 @@
         <p>
           Ces animations se déclenchent lorsque l'élément entre dans la zone de
           vue (viewport) puis restent en place. L'attribut
-          <code>data-animation</code> permet de spécifier le type d'animation,
-          par exemple <code>data-animation="slide-up entry"</code> ou
-          <code>data-animation="fade-up entry"</code>.
+          <code>data-anime</code> permet de spécifier le type d'animation, par
+          exemple <code>data-anime="slide-up entry"</code> ou
+          <code>data-anime="fade-up entry"</code>.
         </p>
         <h3>Slide</h3>
         <div
@@ -59,18 +59,18 @@
           style="--col-min-size: 10rem">
           <div
             class="box"
-            data-animation="slide-left entry">
+            data-anime="slide-left entry">
             slide-left entry
           </div>
           <div
             class="box"
-            data-animation="slide-up entry">
+            data-anime="slide-up entry">
             slide-up entry
           </div>
 
           <div
             class="box"
-            data-animation="slide-right entry">
+            data-anime="slide-right entry">
             slide-right entry
           </div>
         </div>
@@ -81,18 +81,18 @@
           style="--col-min-size: 10rem">
           <div
             class="box"
-            data-animation="fade-left entry">
+            data-anime="fade-left entry">
             fade-left entry
           </div>
           <div
             class="box"
-            data-animation="fade-up entry">
+            data-anime="fade-up entry">
             fade-up entry
           </div>
 
           <div
             class="box"
-            data-animation="fade-right entry">
+            data-anime="fade-right entry">
             fade-right entry
           </div>
         </div>
@@ -103,7 +103,7 @@
           style="--col-min-size: 10rem">
           <div
             class="box"
-            data-animation="zoom entry">
+            data-anime="zoom entry">
             zoom entry
           </div>
         </div>
@@ -114,7 +114,7 @@
           style="--col-min-size: 10rem">
           <div
             class="box"
-            data-animation="reveal entry">
+            data-anime="reveal entry">
             reveal entry
           </div>
         </div>
@@ -125,12 +125,12 @@
           style="--col-min-size: 10rem">
           <div
             class="box"
-            data-animation="flip-y entry">
+            data-anime="flip-y entry">
             flip-y entry
           </div>
           <div
             class="box"
-            data-animation="flip-x entry">
+            data-anime="flip-x entry">
             flip-x entry
           </div>
         </div>
@@ -146,8 +146,8 @@
           (viewport) puis restent en place. Le mot-clé "exit" permet de
           spécifier que l'animation se déclenche lorsqu'un élément sort de la
           zone de vue, par exemple
-          <code>data-animation="slide-up exit"</code> ou
-          <code>data-animation="fade-up exit"</code>.
+          <code>data-anime="slide-up exit"</code> ou
+          <code>data-anime="fade-up exit"</code>.
         </p>
         <h3>Slide</h3>
         <div
@@ -156,18 +156,18 @@
           style="--col-min-size: 10rem">
           <div
             class="box"
-            data-animation="slide-left exit">
+            data-anime="slide-left exit">
             slide-left exit
           </div>
           <div
             class="box"
-            data-animation="slide-up exit">
+            data-anime="slide-up exit">
             slide-up exit
           </div>
 
           <div
             class="box"
-            data-animation="slide-right exit">
+            data-anime="slide-right exit">
             slide-right exit
           </div>
         </div>
@@ -178,18 +178,18 @@
           style="--col-min-size: 10rem">
           <div
             class="box"
-            data-animation="fade-left exit">
+            data-anime="fade-left exit">
             fade-left exit
           </div>
           <div
             class="box"
-            data-animation="fade-up exit">
+            data-anime="fade-up exit">
             fade-up exit
           </div>
 
           <div
             class="box"
-            data-animation="fade-right exit">
+            data-anime="fade-right exit">
             fade-right exit
           </div>
         </div>
@@ -200,7 +200,7 @@
           style="--col-min-size: 10rem">
           <div
             class="box"
-            data-animation="zoom exit">
+            data-anime="zoom exit">
             zoom exit
           </div>
         </div>
@@ -211,7 +211,7 @@
           style="--col-min-size: 10rem">
           <div
             class="box"
-            data-animation="reveal exit">
+            data-anime="reveal exit">
             reveal exit
           </div>
         </div>
@@ -222,12 +222,12 @@
           style="--col-min-size: 10rem">
           <div
             class="box"
-            data-animation="flip-y exit">
+            data-anime="flip-y exit">
             flip-y exit
           </div>
           <div
             class="box"
-            data-animation="flip-x exit">
+            data-anime="flip-x exit">
             flip-x exit
           </div>
         </div>
@@ -241,8 +241,8 @@
         <p>
           Il est possible d'appliquer les deux mots-clés "entry" et "exit" à la
           fois, par exemple
-          <code>data-animation="slide-up entry exit"</code> ou
-          <code>data-animation="fade-up entry exit"</code>.
+          <code>data-anime="slide-up entry exit"</code> ou
+          <code>data-anime="fade-up entry exit"</code>.
         </p>
         <h3>Slide</h3>
         <div
@@ -251,18 +251,18 @@
           style="--col-min-size: 10rem">
           <div
             class="box"
-            data-animation="slide-left entry exit">
+            data-anime="slide-left entry exit">
             slide-left entry exit
           </div>
           <div
             class="box"
-            data-animation="slide-up entry exit">
+            data-anime="slide-up entry exit">
             slide-up entry exit
           </div>
 
           <div
             class="box"
-            data-animation="slide-right entry exit">
+            data-anime="slide-right entry exit">
             slide-right entry exit
           </div>
         </div>
@@ -283,17 +283,17 @@
           style="--col-min-size: 10rem">
           <div
             class="box"
-            data-animation="slide-left bounce entry exit">
+            data-anime="slide-left bounce entry exit">
             slide-left bounce entry exit
           </div>
           <div
             class="box"
-            data-animation="slide-up bounce entry exit">
+            data-anime="slide-up bounce entry exit">
             slide-up bounce entry exit
           </div>
           <div
             class="box"
-            data-animation="zoom bounce entry exit">
+            data-anime="zoom bounce entry exit">
             zoom bounce entry exit
           </div>
         </div>
@@ -313,18 +313,18 @@
           style="--col-min-size: 10rem">
           <div
             class="box"
-            data-animation="fade-up entry exit">
+            data-anime="fade-up entry exit">
             fade-up entry exit
           </div>
           <div
             class="box"
-            data-animation="fade-up entry delay-s exit">
+            data-anime="fade-up entry delay-s exit">
             fade-up entry delay-s exit
           </div>
 
           <div
             class="box"
-            data-animation="fade-up entry delay-m exit">
+            data-anime="fade-up entry delay-m exit">
             fade-up entry delay-m exit
           </div>
         </div>
@@ -345,13 +345,13 @@
           style="--col-min-size: 10rem">
           <div
             class="box"
-            data-animation="shake"
+            data-anime="shake"
             tabindex="0">
             shake
           </div>
           <div
             class="box"
-            data-animation="spaceboots"
+            data-anime="spaceboots"
             tabindex="0">
             spaceboots
           </div>
