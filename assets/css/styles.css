@@ -9,6 +9,10 @@
 }
 
 /* Base */
+html {
+  overflow-x: hidden;
+}
+
 body {
   overflow-x: clip;
   background-color: var(--surface);
