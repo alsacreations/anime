@@ -123,7 +123,11 @@ a:hover {
   place-items: center;
   width: 300px;
   aspect-ratio: 1;
-  background: linear-gradient(135deg, var(--primary), var(--primary-darken));
+  background: linear-gradient(
+    135deg,
+    var(--primary-lighten),
+    var(--primary-darken)
+  );
   color: var(--on-primary);
   padding: 1rem;
   border-radius: var(--radius-16);

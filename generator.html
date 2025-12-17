@@ -63,6 +63,10 @@
                 <optgroup label="Hover/Focus Animations">
                   <option value="shake">Shake</option>
                   <option value="spaceboots">Spaceboots</option>
+                  <option value="pulse-hover">Pulse</option>
+                  <option value="slide-up-hover">Slide Up</option>
+                  <option value="slide-left-hover">Slide Left</option>
+                  <option value="slide-right-hover">Slide Right</option>
                 </optgroup>
               </select>
             </fieldset>
@@ -260,19 +264,59 @@
           const type = formData.get("type")
 
           // Determine category
-          const isHover = ["shake", "spaceboots"].includes(type)
-
-          // Toggle visibility of scroll options
-          if (isHover) {
-            optionsScroll.disabled = true
-            optionsScroll.style.opacity = "0.5"
-          } else {
-            optionsScroll.disabled = false
-            optionsScroll.style.opacity = "1"
-          }
+          const hoverTypes = [
+            "shake",
+            "spaceboots",
+            "pulse-hover",
+            "slide-up-hover",
+            "slide-left-hover",
+            "slide-right-hover",
+          ]
+          const isHover = hoverTypes.includes(type)
 
           // Build string
-          let parts = [type]
+          let parts = []
+          let baseType = type
+          if (type.includes("-hover")) {
+            baseType = type.replace("-hover", "")
+          }
+          parts.push(baseType)
+
+          if (isHover) {
+            parts.push("hover")
+          }
+
+          /* Re-evaluating the "Options (Scroll only)" logic */
+          /*
+             If isHover:
+             - Type is treated as hover.
+             - Offset IS relevant (based on CSS).
+             - Delay/Triggers/Bounce are NOT relevant.
+          */
+
+          const scrollFieldset = document.getElementById("options-scroll")
+          const inputs = scrollFieldset.querySelectorAll("input, select")
+
+          if (isHover) {
+            scrollFieldset.style.opacity = "1" // Keep it visible for Offset
+            scrollFieldset.disabled = false
+
+            inputs.forEach((input) => {
+              if (input.name === "offset") {
+                input.disabled = false
+              } else {
+                input.disabled = true
+              }
+            })
+            // Rename legend temporarily?
+            scrollFieldset.querySelector("legend").textContent = "Options"
+          } else {
+            scrollFieldset.style.opacity = "1"
+            scrollFieldset.disabled = false
+            inputs.forEach((input) => (input.disabled = false))
+            scrollFieldset.querySelector("legend").textContent =
+              "Options (Scroll only)"
+          }
 
           if (!isHover) {
             // Triggers
@@ -292,6 +336,10 @@
             // Bounce
             const bounce = formData.get("bounce")
             if (bounce) parts.push(bounce)
+          } else {
+            // For hover, only offset is relevant from this fieldset
+            const offset = formData.get("offset")
+            if (offset) parts.push(offset)
           }
 
           const attrString = parts.join(" ")

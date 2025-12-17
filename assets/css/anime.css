@@ -50,7 +50,7 @@
 
 /* Scroll-driven Animations */
 @supports (animation-timeline: view()) {
-  [data-anime] {
+  [data-anime]:where(:not([data-anime*="hover"])) {
     --anime-offset: 40px;
 
     animation-duration: auto;
@@ -79,7 +79,7 @@
   }
 
   /* Ranges */
-  [data-anime] {
+  [data-anime]:where(:not([data-anime*="hover"])) {
     --animation-range-entry: cover 10% cover 30%;
     --animation-direction-entry: normal;
 
@@ -168,7 +168,7 @@
   }
 
   /* Pulse */
-  [data-anime*="pulse"] {
+  [data-anime*="pulse"]:where(:not([data-anime*="hover"])) {
     --animation-name-entry: pulse;
     --animation-name-exit: pulse;
   }
@@ -201,6 +201,74 @@
 /* Spaceboots */
 [data-anime*="spaceboots"]:where(:hover, :focus-visible) {
   animation: spaceboots 2s linear infinite alternate;
+}
+
+/* Pulse */
+[data-anime*="pulse"][data-anime*="hover"]:where(:hover, :focus-visible) {
+  animation: pulse var(--transition-duration, 0.25s) 1 forwards;
+}
+
+/* Slide-up */
+[data-anime*="slide-up"][data-anime*="hover"] {
+  transition: translate var(--transition-duration, 0.25s);
+
+  &:where(:hover, :focus-visible) {
+    translate: 0 -2px;
+  }
+
+  &[data-anime*="offset-s"]:where(:hover, :focus-visible) {
+    translate: 0 -4px;
+  }
+
+  &[data-anime*="offset-m"]:where(:hover, :focus-visible) {
+    translate: 0 -12px;
+  }
+
+  &[data-anime*="offset-l"]:where(:hover, :focus-visible) {
+    translate: 0 -24px;
+  }
+}
+
+/* Slide-left */
+[data-anime*="slide-left"][data-anime*="hover"] {
+  transition: translate var(--transition-duration, 0.25s);
+
+  &:where(:hover, :focus-visible) {
+    translate: -2px 0;
+  }
+
+  &[data-anime*="offset-s"]:where(:hover, :focus-visible) {
+    translate: -4px 0;
+  }
+
+  &[data-anime*="offset-m"]:where(:hover, :focus-visible) {
+    translate: -12px 0;
+  }
+
+  &[data-anime*="offset-l"]:where(:hover, :focus-visible) {
+    translate: -24px 0;
+  }
+}
+
+/* Slide-right */
+[data-anime*="slide-right"][data-anime*="hover"] {
+  transition: translate var(--transition-duration, 0.25s);
+
+  &:where(:hover, :focus-visible) {
+    translate: 2px 0;
+  }
+
+  &[data-anime*="offset-s"]:where(:hover, :focus-visible) {
+    translate: 4px 0;
+  }
+
+  &[data-anime*="offset-m"]:where(:hover, :focus-visible) {
+    translate: 12px 0;
+  }
+
+  &[data-anime*="offset-l"]:where(:hover, :focus-visible) {
+    translate: 24px 0;
+  }
 }
 
 /* Accessibility */

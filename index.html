@@ -362,25 +362,57 @@
       <section
         data-layout="stack"
         data-gap="m">
-        <h2>Animations au Survol (Hover)</h2>
+        <h2>Animations au survol et focus (Hover)</h2>
         <p>
           Animations déclenchées au <code>:hover</code> ou
-          <code>:focus-visible</code>.
+          <code>:focus-visible</code>. Ici aussi, l'attribut
+          <code>data-anime</code> permet de spécifier le type d'animation et
+          l'option <code>hover</code> déclenche l'animation au survol et focus.
         </p>
         <div
           data-layout="autogrid"
           data-gap="l">
           <div
             class="box"
-            data-anime="shake"
+            data-anime="shake hover"
             tabindex="0">
-            shake
+            shake hover
           </div>
           <div
             class="box"
-            data-anime="spaceboots"
+            data-anime="spaceboots hover"
             tabindex="0">
-            spaceboots
+            spaceboots hover
+          </div>
+          <div
+            class="box"
+            data-anime="pulse hover"
+            tabindex="0">
+            pulse hover
+          </div>
+          <div
+            class="box"
+            data-anime="slide-up hover"
+            tabindex="0">
+            slide-up hover
+          </div>
+          <div
+            class="box"
+            data-anime="slide-up hover offset-s"
+            tabindex="0">
+            slide-up hover offset-s
+          </div>
+          <div
+            class="box"
+            data-anime="slide-up hover offset-m"
+            tabindex="0">
+            slide-up hover offset-m
+          </div>
+          <div
+            class="box"
+            data-anime="slide-up hover offset-l"
+            tabindex="0">
+            slide-up hover offset-l
           </div>
         </div>
       </section>
