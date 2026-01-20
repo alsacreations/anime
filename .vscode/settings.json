@@ -11,5 +11,6 @@
     "editor.defaultFormatter": "prettier.prettier-vscode"
   },
   "prettier.enable": true,
-  "stylelint.enable": true
+  "stylelint.enable": true,
+  "liveServer.settings.port": 5501
 }

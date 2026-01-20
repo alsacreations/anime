@@ -70,7 +70,10 @@ h3 {
 
 /* Header & Nav */
 header {
+  display: grid;
+  place-content: center;
   padding-block: var(--spacing-xl);
+  min-height: 100dvh;
   text-align: center;
 }
 
